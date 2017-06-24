@@ -10,19 +10,23 @@ using System.IO;
 public class MainController : MonoBehaviour {
 
 	public Text testDisplay;
+	public Text textScore;
 	public List<Text> buttonTexts = new List<Text>();
 	public string SecretWord;
 	public enum choiceOutcome{NONE, RIGHT, WRONG};
 	public choiceOutcome control;
 
 	private WordLists words;
+	private int score;
 	private enum Difficulty {BEGINNER, ADVANCED};
 
 	// Use this for initialization
 	void Start () {
 		//Initialize word list for the duration of the game
 		words = WordLists.Load(Path.Combine(Application.dataPath, "_Persistence/WordBank.xml"));
-
+		//Initialize score
+		score = 0;
+		textScore.text = "Score: " + score.ToString ();
 		//First Secret word is from easy list
 		resetWords(Difficulty.BEGINNER);
 		//Start Timer
@@ -33,9 +37,11 @@ public class MainController : MonoBehaviour {
 		if (control == choiceOutcome.RIGHT) {
 			//reset words to advanced set of secret words
 			resetWords (Difficulty.ADVANCED);
+			score += 10;
+			textScore.text = "Score: " + score.ToString ();
 		}
 		else if(control == choiceOutcome.WRONG){
-			//rset words to advanced set of secret words
+			//reset words to advanced set of secret words
 			resetWords (Difficulty.ADVANCED);
 		}
 		control = choiceOutcome.NONE;
