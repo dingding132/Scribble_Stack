@@ -10,28 +10,36 @@ public class Spin : MonoBehaviour
     private Vector3 _rotation;
     private bool _isRotating;
 
+	private bool isSpin;
+
     void Start()
     {
         _sensitivity = 0.4f;
         _rotation = Vector3.zero;
+
+		isSpin = false;
     }
 
     void Update()
     {
-        if (_isRotating)
-        {
-            // offset
-            _mouseOffset = (Input.mousePosition - _mouseReference);
 
-            // apply rotation
-            _rotation.z = -(_mouseOffset.x + _mouseOffset.z) * _sensitivity;
+		//if toggle pressed is true: do this
+		if(isSpin){
 
-            // rotate
-            transform.Rotate(_rotation);
+			if (_isRotating) {
+				// offset
+				_mouseOffset = (Input.mousePosition - _mouseReference);
 
-            // store mouse
-            _mouseReference = Input.mousePosition;
-        }
+				// apply rotation
+				_rotation.z = -(_mouseOffset.x + _mouseOffset.z) * _sensitivity;
+
+				// rotate
+				transform.Rotate (_rotation);
+
+				// store mouse
+				_mouseReference = Input.mousePosition;
+			}
+		}
     }
 
     void OnMouseDown()
@@ -49,4 +57,8 @@ public class Spin : MonoBehaviour
         _isRotating = false;
     }
 
+	public void Spinning(bool value){
+		isSpin = value;
+	}
+		
 }
