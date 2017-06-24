@@ -13,9 +13,8 @@
 		<word>leaf</word>
 		<word>donut</word>
 		<word>book</word>
-		<word>shoes</word>
+		<word>shoe</word>
 		<word>apple</word>
-		<word>sun</word>
 		<word>heart</word>
 		<word>ball</word>
 		<word>bag</word>
@@ -30,6 +29,16 @@
 		<word>star</word>
 		<word>tree</word>
 		<word>whip</word>
+    <word>flag</word>
+    <word>whale</word>
+    <word>candle</word>
+    <word>comb</word>
+    <word>electric</word>
+    <word>shell</word>
+    <word>golf</word>
+    <word>ear</word>
+    <word>microphone</word>
+    <word>knee</word>
 
 	</BeginnerWords>
 	<AdvancedWords>
@@ -57,6 +66,8 @@
 		<word>button</word>
 		<word>cake</word>
 		<word>camera</word>
+    <word>canada</word>
+    <word>cap</word>
 		<word>card</word>
 		<word>cart</word>
 		<word>carriage</word>
@@ -70,7 +81,7 @@
 		<word>cloud</word>
 		<word>coat</word>
 		<word>collar</word>
-		<word>comb</word>
+		<word>computer</word>
 		<word>cow</word>
 		<word>curtain</word>
 		<word>cushion</word>
@@ -79,8 +90,9 @@
 		<word>drain</word>
 		<word>drawer</word>
 		<word>dress</word>
+    <word>dream</word>
 		<word>drop</word>
-		<word>ear</word>
+		<word>earphone</word>
 		<word>egg</word>
 		<word>eye</word>
 		<word>face</word>
@@ -94,6 +106,7 @@
 		<word>foot</word>
 		<word>fork</word>
 		<word>frame</word>
+    <word>frog</word>
 		<word>garden</word>
 		<word>girl</word>
 		<word>glove</word>
@@ -134,6 +147,7 @@
 		<word>nut</word>
 		<word>office</word>
 		<word>oven</word>
+    <word>owl</word>
 		<word>pig</word>
 		<word>pipe</word>
 		<word>plane</word>
@@ -149,6 +163,7 @@
 		<word>roof</word>
 		<word>root</word>
 		<word>sail</word>
+    <word>saw</word>
 		<word>school</word>
 		<word>scissors</word>
 		<word>screw</word>
