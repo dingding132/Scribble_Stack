@@ -1,3 +1,3 @@
 # Scribble_Stack
-Don't be a Scrub. Be a Scribbies.
-doodly scribbly little game
+Don't be a Scrub. Be a Scrib.
+<br>Doodly scribbly little game<\br>
