@@ -6,8 +6,9 @@ public class SwipeTrial : MonoBehaviour {
 
 	public GameObject trailPrefab;		//passing through the prefab
 	GameObject thisTrail;				//instance created of the current line being drawn
-	Vector2 startPos; 					//2D start position of where we clicked/touched
+	Vector3 startPos; 					//2D start position of where we clicked/touched
 	Plane objPlane;						//plain plane :)
+	//GameObject Parent;
 
 	private bool isSwipe;
 
@@ -18,6 +19,7 @@ public class SwipeTrial : MonoBehaviour {
 
 		//flat plane at the position of the swipe object and facing towards camera
 		objPlane = new Plane (Camera.main.transform.forward * -1, this.transform.position);
+		//Parent = GameObject.Find ("ParentObject");
 
 		isSwipe = true;
 	}
@@ -27,11 +29,14 @@ public class SwipeTrial : MonoBehaviour {
 
 		if ( isSwipe ) {
 
-			//when we touch the screen
-			if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) || Input.GetMouseButtonDown (0)) {
+			//when we first touch the screen
+			//if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) || Input.GetMouseButtonDown (0)) {
+			if (Input.GetMouseButtonDown(0)){
 
 				//the instance of the line is created
-				thisTrail = (GameObject)Instantiate (trailPrefab, this.transform.position, Quaternion.identity);
+				thisTrail = (GameObject)Instantiate (trailPrefab, trailPrefab.transform.position, Quaternion.identity);
+				//thisTrail.transform.parent = Cube.transform;
+				//thisTrail.transform.SetParent(Parent.transform);
 
 				//Ray based on position of the mouse
 				Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -43,8 +48,8 @@ public class SwipeTrial : MonoBehaviour {
 			}
 
 			//if there's been more than 1 touch in this screen and if first touch is moving, OR if left mouse button down
-			else if (((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) || Input.GetMouseButton (0))) {
-
+			//else if (((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Moved) || Input.GetMouseButton (0))) {
+			else if (Input.GetMouseButton(0)){
 					//Ray based on position of the mouse
 					Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 					float rayDistance;
@@ -63,9 +68,9 @@ public class SwipeTrial : MonoBehaviour {
 				}
 
 			//if distance between start position and final position is very small, destroy object (not a drawing)
-			else if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended) || Input.GetMouseButtonUp (0)) {
-
-					if (Vector2.Distance (thisTrail.transform.position, startPos) < 0.1)								//2D
+			//else if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Ended) || Input.GetMouseButtonUp (0)) {
+			else if(Input.GetMouseButtonUp(0)){
+					if (Vector3.Distance (thisTrail.transform.position, startPos) < 0.1)								//2D
 					Destroy (thisTrail);
 
 			}

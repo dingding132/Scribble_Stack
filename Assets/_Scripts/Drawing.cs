@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class paint : MonoBehaviour
+public class Drawing : MonoBehaviour
 {
     int i;
     int i2;

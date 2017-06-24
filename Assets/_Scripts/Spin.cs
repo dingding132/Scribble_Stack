@@ -23,7 +23,7 @@ public class Spin : MonoBehaviour
     void Update()
     {
 
-		//if button pressed is true: do this
+		//if toggle pressed is true: do this
 		if(isSpin){
 
 			if (_isRotating) {
@@ -57,7 +57,7 @@ public class Spin : MonoBehaviour
         _isRotating = false;
     }
 
-	public void spinning(bool value){
+	public void Spinning(bool value){
 		isSpin = value;
 	}
 		
