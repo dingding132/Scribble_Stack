@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonController : MonoBehaviour {
+public class ButtonController2 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.Alpha1)){
+		if (Input.GetKeyDown(KeyCode.Alpha3)){
 			//Button is pressed, fetch text of button
 			Text buttontext = GetComponentInChildren<Text> ();
-		
+
 			//fetch secret word of button manager
 			GameObject Manager = GameObject.Find ("_Manager");
 			MainController controller = Manager.GetComponent<MainController> ();
@@ -30,6 +30,6 @@ public class ButtonController : MonoBehaviour {
 				Debug.Log ("wrong!");
 			}	
 		}
-			
+
 	}
 }
