@@ -15,7 +15,7 @@ public class MainController : MonoBehaviour {
 	public string SecretWord;
 	public enum choiceOutcome{NONE, RIGHT, WRONG};
 	public choiceOutcome control;
-
+	public Button restartButton;
 	private WordLists words;
 	private int score;
 	private enum Difficulty {BEGINNER, ADVANCED};
@@ -29,11 +29,12 @@ public class MainController : MonoBehaviour {
 		textScore.text = "Score: " + score.ToString ();
 		//First Secret word is from easy list
 		resetWords(Difficulty.BEGINNER);
-		//Start Timer
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
 		if (control == choiceOutcome.RIGHT) {
 			//reset words to advanced set of secret words
 			resetWords (Difficulty.ADVANCED);
@@ -45,10 +46,6 @@ public class MainController : MonoBehaviour {
 			resetWords (Difficulty.ADVANCED);
 		}
 		control = choiceOutcome.NONE;
-
-		//If Timer ends, end game
-
-		//Reload scene
 	}
 
 	string NewSecretWord(Difficulty DIFF){
@@ -114,7 +111,32 @@ public class MainController : MonoBehaviour {
 			}
 		}
 	}
-		
+
+	public void endGame(){
+		endTimer();
+		//end main controller
+		GetComponent<MainController>().enabled = false;
+		endButton ();
+		//make restart button available
+		restartButton.gameObject.SetActive(true);
+	}
+	private void endTimer(){	
+		GameObject.Find ("Timer").GetComponent<TimerController>().enabled = false;
+	}
+	private void endButton(){
+		GameObject.Find ("ChoiceButton").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (1)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (2)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (3)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (4)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (5)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (1)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (2)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (3)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (4)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (5)").GetComponent<Button> ().interactable = false;
+	}
 }
 
 //Word lists XML data structure
