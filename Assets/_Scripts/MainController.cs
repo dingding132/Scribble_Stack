@@ -10,10 +10,11 @@ using System.IO;
 public class MainController : MonoBehaviour {
 
 	public Text testDisplay;
-
 	public List<Text> buttonTexts = new List<Text>();
+	public string SecretWord;
+	public enum choiceOutcome{NONE, RIGHT, WRONG};
+	public choiceOutcome control;
 
-	private string SecretWord;
 	private WordLists words;
 	private enum Difficulty {BEGINNER, ADVANCED};
 
@@ -21,42 +22,61 @@ public class MainController : MonoBehaviour {
 	void Start () {
 		//Initialize word list for the duration of the game
 		words = WordLists.Load(Path.Combine(Application.dataPath, "_Persistence/WordBank.xml"));
+
 		//First Secret word is from easy list
-		NewSecretWord(Difficulty.BEGINNER);
-		AudioOutputWord (SecretWord);
-		DisplayWordChoices (Difficulty.BEGINNER);
+		resetWords(Difficulty.BEGINNER);
 		//Start Timer
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//While loop: call new word function until timer ends
-		//Load word choice button
+		if (control == choiceOutcome.RIGHT) {
+			//reset words to advanced set of secret words
+			resetWords (Difficulty.ADVANCED);
+		}
+		else if(control == choiceOutcome.WRONG){
+			//rset words to advanced set of secret words
+			resetWords (Difficulty.ADVANCED);
+		}
+		control = choiceOutcome.NONE;
 
 		//If Timer ends, end game
 
 		//Reload scene
 	}
 
-	private string NewSecretWord(Difficulty DIFF){
+	string NewSecretWord(Difficulty DIFF){
+		string word;
 		//return and remove random word from the list (difficult or beginner list)
 		if (DIFF == Difficulty.BEGINNER) {
 			int randomInt = Random.Range (0, words.BeginnerWords.Count);
-			SecretWord = words.BeginnerWords [randomInt];
+			word = words.BeginnerWords [randomInt];
 			words.BeginnerWords.RemoveAt (randomInt);
-			return SecretWord;
+			return word;
 		} else{
 			int randomInt = Random.Range (0, words.AdvancedWords.Count);
-			SecretWord = words.AdvancedWords [randomInt];
+			word = words.AdvancedWords [randomInt];
 			words.AdvancedWords.RemoveAt (randomInt);
-			return SecretWord;
+			return word;
 		}
 	}
-	private void AudioOutputWord(string word){
+	void resetWords(Difficulty DIFF){
+		if (DIFF == Difficulty.BEGINNER) {
+			SecretWord = NewSecretWord (Difficulty.BEGINNER);
+			AudioOutputWord (SecretWord);
+			DisplayWordChoices (Difficulty.BEGINNER);
+		} 
+		else {
+			SecretWord = NewSecretWord (Difficulty.ADVANCED);
+			AudioOutputWord (SecretWord);
+			DisplayWordChoices(Difficulty.ADVANCED);
+		}
+	}
+	void AudioOutputWord(string word){
 		//secret word will be output in audio soon
 		testDisplay.text = word;
 	}
-	private void DisplayWordChoices(Difficulty DIFF){
+	void DisplayWordChoices(Difficulty DIFF){
 		//one random button of the 6 is the special word
 		int specialPosition = Random.Range (0, 5);
 		//List to store randomly generate index ensure no duplicate
@@ -87,7 +107,6 @@ public class MainController : MonoBehaviour {
 				randomList.Add (randomInt);
 			}
 		}
-
 	}
 		
 }
