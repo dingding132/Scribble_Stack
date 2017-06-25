@@ -10,53 +10,75 @@ using System.IO;
 public class MainController : MonoBehaviour {
 
 	public Text testDisplay;
-
+	public Text textScore;
 	public List<Text> buttonTexts = new List<Text>();
-
 	public string SecretWord;
+	public enum choiceOutcome{NONE, RIGHT, WRONG};
+	public choiceOutcome control;
+	public Button restartButton;
 	private WordLists words;
+	private int score;
 	private enum Difficulty {BEGINNER, ADVANCED};
 
 	// Use this for initialization
 	void Start () {
 		//Initialize word list for the duration of the game
 		words = WordLists.Load(Path.Combine(Application.dataPath, "_Persistence/WordBank.xml"));
+		//Initialize score
+		score = 0;
+		textScore.text = "Score: " + score.ToString ();
 		//First Secret word is from easy list
-		SecretWord = NewSecretWord(Difficulty.BEGINNER);
-		AudioOutputWord (SecretWord);
-		DisplayWordChoices (Difficulty.BEGINNER);
-		//Start Timer
+		resetWords(Difficulty.BEGINNER);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//While loop: call new word function until timer ends
-		//Load word choice button
-
-		//If Timer ends, end game
-
-		//Reload scene
+		
+		if (control == choiceOutcome.RIGHT) {
+			//reset words to advanced set of secret words
+			resetWords (Difficulty.ADVANCED);
+			score += 10;
+			textScore.text = "Score: " + score.ToString ();
+		}
+		else if(control == choiceOutcome.WRONG){
+			//reset words to advanced set of secret words
+			resetWords (Difficulty.ADVANCED);
+		}
+		control = choiceOutcome.NONE;
 	}
 
-	private string NewSecretWord(Difficulty DIFF){
+	string NewSecretWord(Difficulty DIFF){
+		string word;
 		//return and remove random word from the list (difficult or beginner list)
 		if (DIFF == Difficulty.BEGINNER) {
 			int randomInt = Random.Range (0, words.BeginnerWords.Count);
-			SecretWord = words.BeginnerWords [randomInt];
+			word = words.BeginnerWords [randomInt];
 			words.BeginnerWords.RemoveAt (randomInt);
-			return SecretWord;
+			return word;
 		} else{
 			int randomInt = Random.Range (0, words.AdvancedWords.Count);
-			SecretWord = words.AdvancedWords [randomInt];
+			word = words.AdvancedWords [randomInt];
 			words.AdvancedWords.RemoveAt (randomInt);
-			return SecretWord;
+			return word;
 		}
 	}
-	private void AudioOutputWord(string word){
+	void resetWords(Difficulty DIFF){
+		if (DIFF == Difficulty.BEGINNER) {
+			SecretWord = NewSecretWord (Difficulty.BEGINNER);
+			AudioOutputWord (SecretWord);
+			DisplayWordChoices (Difficulty.BEGINNER);
+		} 
+		else {
+			SecretWord = NewSecretWord (Difficulty.ADVANCED);
+			AudioOutputWord (SecretWord);
+			DisplayWordChoices(Difficulty.ADVANCED);
+		}
+	}
+	void AudioOutputWord(string word){
 		//secret word will be output in audio soon
 		testDisplay.text = word;
 	}
-	private void DisplayWordChoices(Difficulty DIFF){
+	void DisplayWordChoices(Difficulty DIFF){
 		//one random button of the 6 is the special word
 		int specialPosition = Random.Range (0, 5);
 		//List to store randomly generate index ensure no duplicate
@@ -87,9 +109,33 @@ public class MainController : MonoBehaviour {
 				randomList.Add (randomInt);
 			}
 		}
-
 	}
-		
+
+	public void endGame(){
+		endTimer();
+		//end main controller
+		GetComponent<MainController>().enabled = false;
+		endButton ();
+		//make restart button available
+		restartButton.gameObject.SetActive(true);
+	}
+	private void endTimer(){	
+		GameObject.Find ("Timer").GetComponent<TimerController>().enabled = false;
+	}
+	private void endButton(){
+		GameObject.Find ("ChoiceButton").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (1)").GetComponent<ButtonController1> ().enabled = false;
+		GameObject.Find ("ChoiceButton (2)").GetComponent<ButtonController2> ().enabled = false;
+		GameObject.Find ("ChoiceButton (3)").GetComponent<ButtonController3> ().enabled = false;
+		GameObject.Find ("ChoiceButton (4)").GetComponent<ButtonController4> ().enabled = false;
+		GameObject.Find ("ChoiceButton (5)").GetComponent<ButtonController5> ().enabled = false;
+		GameObject.Find ("ChoiceButton").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (1)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (2)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (3)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (4)").GetComponent<Button> ().interactable = false;
+		GameObject.Find ("ChoiceButton (5)").GetComponent<Button> ().interactable = false;
+	}
 }
 
 //Word lists XML data structure
