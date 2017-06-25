@@ -114,6 +114,7 @@ public class MainController : MonoBehaviour {
 
 	public void endGame(){
 		endTimer();
+		endScribble ();
 		//end main controller
 		GetComponent<MainController>().enabled = false;
 		endButton ();
@@ -122,6 +123,9 @@ public class MainController : MonoBehaviour {
 	}
 	private void endTimer(){	
 		GameObject.Find ("Timer").GetComponent<TimerController>().enabled = false;
+	}
+	private void endScribble(){
+		GameObject.Find ("LineManager").GetComponent<LineCreator> ().enabled = false;
 	}
 	private void endButton(){
 		GameObject.Find ("ChoiceButton").GetComponent<ButtonController> ().enabled = false;
