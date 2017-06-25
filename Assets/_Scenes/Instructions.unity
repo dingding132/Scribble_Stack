@@ -140,8 +140,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 281}
-  m_SizeDelta: {x: 1000, y: 79}
+  m_AnchoredPosition: {x: -1, y: 265}
+  m_SizeDelta: {x: 1004, y: 111}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &146165213
 MonoBehaviour:
@@ -163,12 +163,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: bb99af5fb697948d59ca9aea43a64307, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -396,12 +396,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: bb99af5fb697948d59ca9aea43a64307, type: 3}
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
+    m_MinSize: 0
+    m_MaxSize: 50
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -409,7 +409,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Scribbler:\n - Listen to the secret word.\n - Draw the word.\n - Start
-    small.s\n - What's done cannot be undone."
+    small.\n - What's done cannot be \n   undone."
 --- !u!222 &183010346
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -588,7 +588,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.7803922, g: 0.5921569, b: 0.72156864, a: 0}
+  m_BackGroundColor: {r: 0.9191176, g: 0.734, b: 0.830416, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.17
-  m_Text: How to Scribble Stack
+  m_Text: HOW TO SCRIBBLE STACK
 --- !u!222 &979590241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 512, y: 323}
+  m_AnchoredPosition: {x: 547, y: 323}
   m_SizeDelta: {x: 1024, y: 646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695469947
@@ -863,25 +863,20 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: bb99af5fb697948d59ca9aea43a64307, type: 3}
+    m_FontSize: 42
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 42
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Decrypter:
-
-    - Look at the drawing.
-
-    - Decrypt it.
-
-    - Press the keyboard number that corresponds to the correct word.'
+  m_Text: "Decrypter:\n- Look at the drawing.\n- Decrypt it.\n- Press the keyboard
+    \n  number that corresponds \n  to the correct word."
 --- !u!222 &1781411232
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1030,7 +1025,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.102941155, g: 0.048442893, b: 0.08591045, a: 1}
+  m_Color: {r: 0.91764706, g: 0.73333335, b: 0.83137256, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1038,12 +1033,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_Font: {fileID: 12800000, guid: bb99af5fb697948d59ca9aea43a64307, type: 3}
+    m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 50
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
