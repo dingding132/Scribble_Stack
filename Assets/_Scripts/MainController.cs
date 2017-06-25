@@ -13,7 +13,7 @@ public class MainController : MonoBehaviour {
 
 	public List<Text> buttonTexts = new List<Text>();
 
-	private string SecretWord;
+	public string SecretWord;
 	private WordLists words;
 	private enum Difficulty {BEGINNER, ADVANCED};
 
@@ -22,7 +22,7 @@ public class MainController : MonoBehaviour {
 		//Initialize word list for the duration of the game
 		words = WordLists.Load(Path.Combine(Application.dataPath, "_Persistence/WordBank.xml"));
 		//First Secret word is from easy list
-		NewSecretWord(Difficulty.BEGINNER);
+		SecretWord = NewSecretWord(Difficulty.BEGINNER);
 		AudioOutputWord (SecretWord);
 		DisplayWordChoices (Difficulty.BEGINNER);
 		//Start Timer
