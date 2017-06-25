@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour {
 	public Text timerText;
-	private const float MAXTIMER = 10;
+	private const float MAXTIMER = 180;
 
 	// Use this for initialization
 	void Start () {
