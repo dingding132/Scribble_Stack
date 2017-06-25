@@ -8,12 +8,13 @@ public class RestartGame : MonoBehaviour {
 	public Button restartButton;
 	// Use this for initialization
 	void Start () {
-		restartButton.gameObject.SetActive(false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (Input.GetKey ("escape")) {
+			Application.Quit ();
+		}
 	}
 	public void restartGameButton(){
 		SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
