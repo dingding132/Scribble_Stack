@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 
 using System.Xml;
 using System.Xml.Serialization;
@@ -18,6 +19,7 @@ public class MainController : MonoBehaviour {
 	public Button restartButton;
 	public Button skipButton;
 
+	private GameObject wrongPanel;
 	private WordLists words;
 	private int score;
 	private enum Difficulty {BEGINNER, ADVANCED};
@@ -29,8 +31,11 @@ public class MainController : MonoBehaviour {
 		//Initialize score
 		score = 0;
 		textScore.text = "Score: " + score.ToString ();
+		wrongPanel = GameObject.Find ("WrongPanel");
+		wrongPanel.SetActive (false);
 		//First Secret word is from easy list
 		resetWords(Difficulty.BEGINNER);
+
 	}
 	
 	// Update is called once per frame
@@ -43,7 +48,8 @@ public class MainController : MonoBehaviour {
 			textScore.text = "Score: " + score.ToString ();
 		} else if (control == choiceOutcome.WRONG) {
 			//reset words to advanced set of secret words
-			RenderSettings.ambientLight = Color.red;
+			EditorApplication.Beep();
+			StartCoroutine(wrongPanel.GetComponent<WrongPanelController> ().wrongPanelActivate());
 			resetWords (Difficulty.ADVANCED);
 		} else if (control == choiceOutcome.SKIP) {
 			//reset words same as wrong, but no wrong message
@@ -151,6 +157,7 @@ public class MainController : MonoBehaviour {
 	public void skipGame(){
 		control = choiceOutcome.SKIP;
 	}
+
 }
 
 //Word lists XML data structure
