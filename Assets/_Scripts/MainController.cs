@@ -40,7 +40,11 @@ public class MainController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(Input.GetKey("escape"))
+			Application.Quit();
 		
+
 		if (control == choiceOutcome.RIGHT) {
 			//reset words to advanced set of secret words
 			resetWords (Difficulty.ADVANCED);
