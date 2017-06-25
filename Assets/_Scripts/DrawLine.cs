@@ -6,8 +6,7 @@ public class DrawLine : MonoBehaviour
 	private LineRenderer line;
 	private AnimationCurve curve;
 	private bool isMousePressed;
-	private Vector3 mousePos;
-	private Color color;
+	private Vector3 mousePos;	
 
 	public List<Vector3> pointsList;
 
@@ -28,6 +27,7 @@ public class DrawLine : MonoBehaviour
 		curve.AddKey (0, 0.05f);
 		curve.AddKey (1, 0.05f);
 		line.widthCurve = curve;
+
 		line.startColor = Color.yellow;
 		line.endColor = Color.blue;
 
@@ -42,7 +42,7 @@ public class DrawLine : MonoBehaviour
 			pointsList.RemoveRange (0, pointsList.Count);
 			line.startColor = Color.yellow;
 			line.endColor = Color.blue;
-			//line.SetColors (Color.yellow, Color.yellow);
+
 		}
 	}
 	//    -----------------------------------    
