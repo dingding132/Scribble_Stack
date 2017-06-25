@@ -409,8 +409,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Scribbler:\n - Listen to the secret word.\n - Draw the word.\n - Start
-    small.\n - What's done cannot be \n   undone."
+  m_Text: "Scribbler:\n - Connect your earphones.\n - Listen to the secret word.\n
+    - Draw the word (start small)!\n - What's done cannot be \n   undone."
 --- !u!222 &183010346
 CanvasRenderer:
   m_ObjectHideFlags: 0
