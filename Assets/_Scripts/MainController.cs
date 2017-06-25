@@ -75,7 +75,8 @@ public class MainController : MonoBehaviour {
 		}
 	}
 	void AudioOutputWord(string word){
-		//secret word will be output in audio soon
+		//secret word will be output in audio
+		GameObject.Find("AudioButton").GetComponent<ClickSound>().PlaySound();
 		testDisplay.text = word;
 	}
 	void DisplayWordChoices(Difficulty DIFF){
@@ -113,6 +114,7 @@ public class MainController : MonoBehaviour {
 
 	public void endGame(){
 		endTimer();
+		endScribble ();
 		//end main controller
 		GetComponent<MainController>().enabled = false;
 		endButton ();
@@ -121,6 +123,9 @@ public class MainController : MonoBehaviour {
 	}
 	private void endTimer(){	
 		GameObject.Find ("Timer").GetComponent<TimerController>().enabled = false;
+	}
+	private void endScribble(){
+		GameObject.Find ("LineManager").GetComponent<LineCreator> ().enabled = false;
 	}
 	private void endButton(){
 		GameObject.Find ("ChoiceButton").GetComponent<ButtonController> ().enabled = false;

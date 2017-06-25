@@ -14,23 +14,18 @@ public class ClickSound : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        //Debug.Log(GameObject.Find("_Manager").GetComponent<MainController>().SecretWord);
-        sound = Resources.Load<AudioClip>("_Audio/" + (GameObject.Find("_Manager").GetComponent<MainController>().SecretWord));
-        gameObject.AddComponent<AudioSource>();
-        source.clip = sound;
-        source.playOnAwake = true;
-        source.PlayOneShot(sound);
-        button.onClick.AddListener(() => PlaySound());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(GameObject.Find("_Manager").GetComponent<MainController>().SecretWord);
-        sound = Resources.Load<AudioClip>("_Audio/" + (GameObject.Find("_Manager").GetComponent<MainController>().SecretWord));
     }
-    void PlaySound()
+	public void PlaySound()
     {
-        source.PlayOneShot(sound);
+		sound = Resources.Load<AudioClip>("_Audio/" + (GameObject.Find("_Manager").GetComponent<MainController>().SecretWord));
+		gameObject.AddComponent<AudioSource>();
+		source.clip = sound;
+		source.playOnAwake = true;
+		source.PlayOneShot(sound);
     }
 }
