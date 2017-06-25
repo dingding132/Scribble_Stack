@@ -13,9 +13,11 @@ public class MainController : MonoBehaviour {
 	public Text textScore;
 	public List<Text> buttonTexts = new List<Text>();
 	public string SecretWord;
-	public enum choiceOutcome{NONE, RIGHT, WRONG};
+	public enum choiceOutcome{NONE, RIGHT, WRONG, SKIP};
 	public choiceOutcome control;
 	public Button restartButton;
+	public Button skipButton;
+
 	private WordLists words;
 	private int score;
 	private enum Difficulty {BEGINNER, ADVANCED};
@@ -23,7 +25,7 @@ public class MainController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Initialize word list for the duration of the game
-		words = WordLists.Load(Path.Combine(Application.dataPath, "_Persistence/WordBank.xml"));
+		words = WordLists.Load(Path.Combine(Application.dataPath, "Resources/_Persistence/WordBank.xml"));
 		//Initialize score
 		score = 0;
 		textScore.text = "Score: " + score.ToString ();
@@ -39,9 +41,12 @@ public class MainController : MonoBehaviour {
 			resetWords (Difficulty.ADVANCED);
 			score += 10;
 			textScore.text = "Score: " + score.ToString ();
-		}
-		else if(control == choiceOutcome.WRONG){
+		} else if (control == choiceOutcome.WRONG) {
 			//reset words to advanced set of secret words
+			RenderSettings.ambientLight = Color.red;
+			resetWords (Difficulty.ADVANCED);
+		} else if (control == choiceOutcome.SKIP) {
+			//reset words same as wrong, but no wrong message
 			resetWords (Difficulty.ADVANCED);
 		}
 		control = choiceOutcome.NONE;
@@ -55,7 +60,7 @@ public class MainController : MonoBehaviour {
 			word = words.BeginnerWords [randomInt];
 			words.BeginnerWords.RemoveAt (randomInt);
 			return word;
-		} else{
+		} else {
 			int randomInt = Random.Range (0, words.AdvancedWords.Count);
 			word = words.AdvancedWords [randomInt];
 			words.AdvancedWords.RemoveAt (randomInt);
@@ -120,6 +125,8 @@ public class MainController : MonoBehaviour {
 		endButton ();
 		//make restart button available
 		restartButton.gameObject.SetActive(true);
+		//make skip button disappear
+		skipButton.gameObject.SetActive(false);
 	}
 	private void endTimer(){	
 		GameObject.Find ("Timer").GetComponent<TimerController>().enabled = false;
@@ -140,6 +147,9 @@ public class MainController : MonoBehaviour {
 		GameObject.Find ("ChoiceButton (3)").GetComponent<Button> ().interactable = false;
 		GameObject.Find ("ChoiceButton (4)").GetComponent<Button> ().interactable = false;
 		GameObject.Find ("ChoiceButton (5)").GetComponent<Button> ().interactable = false;
+	}
+	public void skipGame(){
+		control = choiceOutcome.SKIP;
 	}
 }
 
