@@ -8,26 +8,18 @@ public class SwipeTrial : MonoBehaviour {
 	GameObject thisTrail;				//instance created of the current line being drawn
 	Vector3 startPos; 					//2D start position of where we clicked/touched
 	Plane objPlane;						//plain plane :)
-	//GameObject Parent;
-
-	private bool isSwipe;
-
-	//me
-	//Vector2 currPos;
 
 	void Start(){
 
 		//flat plane at the position of the swipe object and facing towards camera
 		objPlane = new Plane (Camera.main.transform.forward * -1, this.transform.position);
-		//Parent = GameObject.Find ("ParentObject");
-
-		isSwipe = true;
+	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if ( isSwipe ) {
+
 
 			//when we first touch the screen
 			//if ((Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) || Input.GetMouseButtonDown (0)) {
@@ -35,8 +27,6 @@ public class SwipeTrial : MonoBehaviour {
 
 				//the instance of the line is created
 				thisTrail = (GameObject)Instantiate (trailPrefab, trailPrefab.transform.position, Quaternion.identity);
-				//thisTrail.transform.parent = Cube.transform;
-				//thisTrail.transform.SetParent(Parent.transform);
 
 				//Ray based on position of the mouse
 				Ray mRay = Camera.main.ScreenPointToRay (Input.mousePosition);
@@ -60,9 +50,6 @@ public class SwipeTrial : MonoBehaviour {
 						thisTrail.transform.position = mRay.GetPoint (rayDistance);
 						//print(mRay.GetPoint(rayDistance));
 
-						//currPos = mRay.GetPoint (rayDistance); 
-						//thisTrail.transform.position = currPos;
-
 					}
 
 				}
@@ -74,10 +61,8 @@ public class SwipeTrial : MonoBehaviour {
 					Destroy (thisTrail);
 
 			}
-		}
+
 	}
 
-	public void Swiping(bool value){
-		isSwipe = !value;
-	}
+
 }
