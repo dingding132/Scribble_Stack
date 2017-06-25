@@ -29,7 +29,6 @@ public class MainController : MonoBehaviour {
 		textScore.text = "Score: " + score.ToString ();
 		//First Secret word is from easy list
 		resetWords(Difficulty.BEGINNER);
-
 	}
 	
 	// Update is called once per frame
