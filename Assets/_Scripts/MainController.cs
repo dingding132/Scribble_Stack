@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+//using UnityEditor;
 
 using System.Xml;
 using System.Xml.Serialization;
@@ -40,7 +40,11 @@ public class MainController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if(Input.GetKey("escape"))
+			Application.Quit();
 		
+
 		if (control == choiceOutcome.RIGHT) {
 			//reset words to advanced set of secret words
 			resetWords (Difficulty.ADVANCED);
@@ -48,7 +52,7 @@ public class MainController : MonoBehaviour {
 			textScore.text = "Score: " + score.ToString ();
 		} else if (control == choiceOutcome.WRONG) {
 			//reset words to advanced set of secret words
-			EditorApplication.Beep();
+			//EditorApplication.Beep();
 			StartCoroutine(wrongPanel.GetComponent<WrongPanelController> ().wrongPanelActivate());
 			resetWords (Difficulty.ADVANCED);
 		} else if (control == choiceOutcome.SKIP) {
