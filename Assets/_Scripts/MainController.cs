@@ -125,11 +125,11 @@ public class MainController : MonoBehaviour {
 	}
 	private void endButton(){
 		GameObject.Find ("ChoiceButton").GetComponent<ButtonController> ().enabled = false;
-		GameObject.Find ("ChoiceButton (1)").GetComponent<ButtonController> ().enabled = false;
-		GameObject.Find ("ChoiceButton (2)").GetComponent<ButtonController> ().enabled = false;
-		GameObject.Find ("ChoiceButton (3)").GetComponent<ButtonController> ().enabled = false;
-		GameObject.Find ("ChoiceButton (4)").GetComponent<ButtonController> ().enabled = false;
-		GameObject.Find ("ChoiceButton (5)").GetComponent<ButtonController> ().enabled = false;
+		GameObject.Find ("ChoiceButton (1)").GetComponent<ButtonController1> ().enabled = false;
+		GameObject.Find ("ChoiceButton (2)").GetComponent<ButtonController2> ().enabled = false;
+		GameObject.Find ("ChoiceButton (3)").GetComponent<ButtonController3> ().enabled = false;
+		GameObject.Find ("ChoiceButton (4)").GetComponent<ButtonController4> ().enabled = false;
+		GameObject.Find ("ChoiceButton (5)").GetComponent<ButtonController5> ().enabled = false;
 		GameObject.Find ("ChoiceButton").GetComponent<Button> ().interactable = false;
 		GameObject.Find ("ChoiceButton (1)").GetComponent<Button> ().interactable = false;
 		GameObject.Find ("ChoiceButton (2)").GetComponent<Button> ().interactable = false;
