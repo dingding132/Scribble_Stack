@@ -4,9 +4,12 @@ using System.Collections.Generic;
 public class DrawLine : MonoBehaviour
 {
 	private LineRenderer line;
+	private AnimationCurve curve;
 	private bool isMousePressed;
-	public List<Vector3> pointsList;
 	private Vector3 mousePos;
+	private Color color;
+
+	public List<Vector3> pointsList;
 
 	// Structure for line points
 	struct myLine
@@ -21,17 +24,25 @@ public class DrawLine : MonoBehaviour
 		line = gameObject.AddComponent<LineRenderer> ();
 		line.material = new Material (Shader.Find ("Particles/Additive"));
 		line.SetVertexCount (0);
-		line.SetWidth (0.1f, 0.1f);
-		line.SetColors (Color.yellow, Color.yellow);
+		curve = new AnimationCurve ();
+		curve.AddKey (0, 0.05f);
+		curve.AddKey (1, 0.05f);
+		line.widthCurve = curve;
+		line.startColor = Color.yellow;
+		line.endColor = Color.blue;
+
+		//(Color.yellow, Color.yellow);
 		line.useWorldSpace = true;    
 		isMousePressed = false;
 		pointsList = new List<Vector3> ();
-		//        renderer.material.SetTextureOffset(
+
 		if (Input.GetMouseButtonDown (0)) {
 			isMousePressed = true;
 			line.SetVertexCount (0);
 			pointsList.RemoveRange (0, pointsList.Count);
-			line.SetColors (Color.yellow, Color.yellow);
+			line.startColor = Color.yellow;
+			line.endColor = Color.blue;
+			//line.SetColors (Color.yellow, Color.yellow);
 		}
 	}
 	//    -----------------------------------    
