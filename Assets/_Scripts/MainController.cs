@@ -41,9 +41,9 @@ public class MainController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKey("escape"))
-			Application.Quit();
-		
+		if (Input.GetKey ("escape")) {
+			Application.Quit ();
+		}
 
 		if (control == choiceOutcome.RIGHT) {
 			//reset words to advanced set of secret words
@@ -133,8 +133,6 @@ public class MainController : MonoBehaviour {
 		//end main controller
 		GetComponent<MainController>().enabled = false;
 		endButton ();
-		//make restart button available
-		restartButton.gameObject.SetActive(true);
 		//make skip button disappear
 		skipButton.gameObject.SetActive(false);
 	}
