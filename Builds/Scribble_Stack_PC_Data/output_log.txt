@@ -1,0 +1,65 @@
+Initialize engine version: 5.6.2f1 (a2913c821e27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon R7 M265 Series (ID=0x6604)
+    Vendor:   ATI
+    VRAM:     2027 MB
+    Driver:   15.200.1045.0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
+Loading C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
+- Completed reload, in  0.041 seconds
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 3.966490 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 7.495919 ms
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 297.
+Total: 0.547824 ms (FindLiveObjects: 0.036778 ms CreateObjectMapping: 0.038488 ms MarkObjects: 0.335280 ms  DeleteObjects: 0.135993 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.505914 ms
+
+Unloading 3 unused Assets to reduce memory usage. Loaded Objects now: 405.
+Total: 0.559799 ms (FindLiveObjects: 0.044476 ms CreateObjectMapping: 0.029508 ms MarkObjects: 0.464004 ms  DeleteObjects: 0.020955 ms)
+
+Platform assembly: C:\Users\Potassium\Documents\GitHub\Scribble_Stack\Builds\Scribble_Stack_PC_Data\Managed\System.Xml.dll (this message is harmless)
+right!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+right!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+right!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+right!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.744545 ms
+
+Unloading 33 unused Assets to reduce memory usage. Loaded Objects now: 405.
+Total: 0.650889 ms (FindLiveObjects: 0.048324 ms CreateObjectMapping: 0.032501 ms MarkObjects: 0.438772 ms  DeleteObjects: 0.130006 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 25c0 -> priority: 1 
+  Thread -> id: 6c4 -> priority: 1 
